@@ -108,8 +108,8 @@ def main(
         rep=rep,
         vocab_size=get_config(model_name).vocab_size,
         # seed=seed,
-        prepend_bos=model_name in ["gemma-7b", "llama2-7b", "mixtral-7b", "llama3-8b"],
-        bos={"llama2-7b": 1, "gemma-7b": 2, "mistral-7b": 1, "llama3-8b": 1}.get(model_name, None),
+        prepend_bos=model_name in ["gemma-7b", "llama2-7b", "mixtral-7b", "llama3-8b", "llama2-70b"],
+        bos={"llama2-7b": 1, "gemma-7b": 2, "mistral-7b": 1, "llama3-8b": 1, "llama2-70b": 1}.get(model_name, None),
     )
 
     attentions = get_attentions(model, input_ids)
