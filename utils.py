@@ -154,6 +154,15 @@ def load_model(model_name):
         )
         return gemma
 
+    def load_gemma2_9b():
+        gemma = GemmaForCausalLM.from_pretrained(
+            "google/gemma-2-9b",
+            output_attentions=True,
+            torch_dtype=torch.bfloat16,
+            device_map="cuda",
+        )
+        return gemma
+
     def load_falcon_7b():
         falcon = FalconForCausalLM.from_pretrained(
             "tiiuae/falcon-7b",
@@ -206,6 +215,7 @@ def load_model(model_name):
         "llama3-8b": load_llama3_8b,
         "llama2-70b": load_llama2_70b,
         "gemma-7b": load_gemma_7b,
+        "gemma-2-9b": load_gemma2_9b,
         "falcon-7b": load_falcon_7b,
         "falcon2-11b": load_falcon2_11b,
         "mistral-7b": load_mistral_7b,
@@ -222,6 +232,7 @@ def get_config(model_name):
         "llama3-8b": "meta-llama/Meta-Llama-3-8B",
         "llama2-70b": "meta-llama/Llama-2-70b-hf",
         "gemma-7b": "google/gemma-7b",
+        "gemma-2-9b": "google/gemma-2-9b",
         "falcon-7b": "tiiuae/falcon-7b",
         "falcon2-11b": "tiiuae/falcon-11B",
         "mistral-7b": "mistralai/Mistral-7B-v0.1",
