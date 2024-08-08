@@ -263,7 +263,7 @@ def get_qkov_weight(model, model_name, config, ilayer, ihead, component):
             "o": proj.weight[ihead * d_head : ihead * d_head + d_head, :].T,
         }[component].data
 
-    elif model_name in ["llama2-7b", "gemma-7b", "mistral-7b", "olmo-7b"]:
+    elif model_name in ["llama2-7b", "gemma-7b", "gemma-2-9b", "mistral-7b", "olmo-7b"]:
         if model_name == "mistral-7b":
             ikvhead = ihead * config.num_key_value_heads // num_head
         else:
