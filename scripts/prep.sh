@@ -4,7 +4,8 @@
 # MODEL_NAMES=("llama3-8b")
 # MODEL_NAMES=("falcon2-11b")
 # MODEL_NAMES=("llama2-70b")
-MODEL_NAMES=("gemma-2-9b")
+# MODEL_NAMES=("gemma-2-9b")
+MODEL_NAMES=("llama3-70b")
 
 for model in "${MODEL_NAMES[@]}";
 do

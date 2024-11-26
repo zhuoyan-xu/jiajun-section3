@@ -144,6 +144,15 @@ def load_model(model_name):
             device_map="auto",
         )
         return llama
+    
+    def load_llama3_70b():
+        llama = LlamaForCausalLM.from_pretrained(
+            "meta-llama/Meta-Llama-3-70B-Instruct",
+            output_attentions=True,
+            torch_dtype=torch.bfloat16,
+            device_map="auto",
+        )
+        return llama
 
     def load_gemma_7b():
         gemma = GemmaForCausalLM.from_pretrained(
@@ -214,6 +223,7 @@ def load_model(model_name):
         "llama2-7b": load_llama2_7b,
         "llama3-8b": load_llama3_8b,
         "llama2-70b": load_llama2_70b,
+        "llama3-70b": load_llama3_70b,
         "gemma-7b": load_gemma_7b,
         "gemma-2-9b": load_gemma2_9b,
         "falcon-7b": load_falcon_7b,
@@ -231,6 +241,7 @@ def get_config(model_name):
         "llama2-7b": "meta-llama/Llama-2-7b-hf",
         "llama3-8b": "meta-llama/Meta-Llama-3-8B",
         "llama2-70b": "meta-llama/Llama-2-70b-hf",
+        "llama3-70b": "meta-llama/Meta-Llama-3-70B-Instruct",
         "gemma-7b": "google/gemma-7b",
         "gemma-2-9b": "google/gemma-2-9b",
         "falcon-7b": "tiiuae/falcon-7b",
