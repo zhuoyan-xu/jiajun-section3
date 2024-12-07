@@ -16,6 +16,7 @@ model_name_hf = {
     "llama2-70b": "meta-llama/Llama-2-70b-hf",
     "gemma-2-9b": "google/gemma-2-9b",
     "llama3-70b": "meta-llama/Meta-Llama-3-70B-Instruct",
+    "llama2-13b": "meta-llama/Llama-2-13b-chat-hf",
 }
 ```
 

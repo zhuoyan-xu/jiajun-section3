@@ -145,6 +145,15 @@ def load_model(model_name):
         )
         return llama
     
+    def load_llama2_13b():
+        llama = LlamaForCausalLM.from_pretrained(
+            "meta-llama/Llama-2-13b-chat-hf",
+            output_attentions=True,
+            torch_dtype=torch.bfloat16,
+            device_map="auto",
+        )
+        return llama
+    
     def load_llama3_70b():
         llama = LlamaForCausalLM.from_pretrained(
             "meta-llama/Meta-Llama-3-70B-Instruct",
@@ -231,6 +240,7 @@ def load_model(model_name):
         "mistral-7b": load_mistral_7b,
         "olmo-7b": load_olmo_7b,
         "pythia-7b": load_pythia_7b,
+        "llama2-13b": load_llama2_13b,
     }[model_name]()
 
 
@@ -249,6 +259,7 @@ def get_config(model_name):
         "mistral-7b": "mistralai/Mistral-7B-v0.1",
         "olmo-7b": "allenai/OLMo-1.7-7B-hf",
         "pythia-7b": "EleutherAI/pythia-6.9b",
+        "llama2-13b": "meta-llama/Llama-2-13b-chat-hf",
     }[model_name]
     config = AutoConfig.from_pretrained(model_name_hf)
 
