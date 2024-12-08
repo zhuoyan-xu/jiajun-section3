@@ -147,7 +147,7 @@ def load_model(model_name):
     
     def load_llama2_13b():
         llama = LlamaForCausalLM.from_pretrained(
-            "meta-llama/Llama-2-13b-chat-hf",
+            "meta-llama/Llama-2-13b-hf",
             output_attentions=True,
             torch_dtype=torch.bfloat16,
             device_map="auto",
